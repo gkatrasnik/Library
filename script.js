@@ -15,12 +15,11 @@ function book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
   let newBook = new book(title, author, pages, read);
   myLibrary.unshift(newBook);
+  displayLibrary(myLibrary);
 }
 
 function displayLibrary(myLibrary) {
-  for (let i in myLibrary) {
-    console.log(i);
-  }
+  console.log(myLibrary)
 }
 
 function popupShow() {
@@ -28,12 +27,14 @@ function popupShow() {
     element.classList.toggle("shown");
 }
 
-function addBook() {    
-    popupShow();
-}
-
-function cancelPopup() {
-    popupShow();
+function createNewBook() {
+  const bookTitle = document.getElementById("book-title").value;
+  const bookAuthor = document.getElementById("book-author").value;
+  const bookPages = document.getElementById("book-pages").value;
+  const bookRead = document.getElementById("book-read").checked;
+    
+  addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead);  
+  popupShow();
 }
 
 
@@ -41,12 +42,4 @@ function cancelPopup() {
 
 const addButton = document.querySelector("#add");
 
-addButton.addEventListener("click", e => {
-  
-  const bookTitle = document.getElementById("book-title").value;
-  const bookAuthor = document.getElementById("book-author").value;
-  const bookPages = document.getElementById("book-pages").value;
-  const bookRead = document.getElementById("book-read").checked;
-
-  console.log(bookTitle, bookAuthor, bookPages, bookRead);
-})
+addButton.addEventListener("click", createNewBook);
