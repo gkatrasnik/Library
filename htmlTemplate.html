@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> TEST </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class = "wrapper">
+    <h1>LIBRARY</h1>
+    <div class="controls"></div>
+      <button id="add-a-book" onclick="popupShow()">Add a book</button>
+
+    <div id = "popupDiv" class="popup">
+      <h2>Add new book</h2>
+      <label for="book-title">Title:</label>
+      <input type="text" id="book-title" class="popup-item">
+
+      <label for="book-author">Author:</label>
+      <input type="text" id="book-author" class="popup-item">
+
+      <label for="book-pages">Number of pages:</label>
+      <input type="text" id="book-pages" class="popup-item">
+
+      <label for="book-read">Finished the book?</label>
+      <input type="radio" id="book-read" class="popup-item">
+      
+      <div class = button-box>
+        <button id="cancel" class="popup-item" onclick="cancelPopup()">Cancel</button>
+        <button id="add" class="popup-item" onclick="addBook()">Add</button>
+      </div>
+    </div>
+
+    <div class = "container">
+      <div class = "book-card">
+      
+      </div>
+    </div>
+
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
