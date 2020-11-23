@@ -19,13 +19,50 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayLibrary(myLibrary) {
-  console.log(myLibrary)
+  const container = document.getElementById("container");
+  let bookCard = document.createElement("div"); 
+  
+    let title = myLibrary[0].title;
+    let author = myLibrary[0].author;
+    let pages = myLibrary[0].pages;
+    let read = myLibrary[0].read;
+      
+    bookCard.id = myLibrary[0].title;
+    bookCard.classList.add("lib-element");
+
+    let textTitle = document.createElement("p"); 
+    textTitle.textContent= title; 
+
+    let textAuthor = document.createElement("p");
+    textAuthor.textContent= author; 
+
+    let textPages = document.createElement("p");
+    textPages.textContent = ("Pages: " + pages);  
+
+    let label = document.createElement("p");
+    label.textContent = "Read:"; 
+
+    readCheck = document.createElement("INPUT");
+    readCheck.setAttribute("id", "read");
+    readCheck.setAttribute("type", "checkbox");
+    readCheck.checked = read; 
+
+    let removeButton = document.createElement("button");
+    removeButton.setAttribute("class", "removeBook");
+    removeButton.textContent = "Remove"
+
+    
+    bookCard.appendChild(textTitle);
+    bookCard.appendChild(textAuthor);
+    bookCard.appendChild(textPages);
+    bookCard.appendChild(label);
+    bookCard.appendChild(readCheck);
+    bookCard.appendChild(removeButton);  
+  
+    container.appendChild(bookCard);
 }
 
-function popupShow() {
-    let element = document.getElementById("popupDiv")
-    element.classList.toggle("shown");
-}
+
 
 function createNewBook() {
   const bookTitle = document.getElementById("book-title").value;
@@ -34,11 +71,26 @@ function createNewBook() {
   const bookRead = document.getElementById("book-read").checked;
     
   addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead);  
+  
   popupShow();
 }
 
 
-// code
+function popupShow() {
+    let element = document.getElementById("popupDiv")
+    element.classList.toggle("shown");
+
+    popupClear();
+}
+
+function popupClear() {
+  document.getElementById("book-title").value = "";
+  document.getElementById("book-author").value = "";
+  document.getElementById("book-pages").value = "";
+  document.getElementById("book-read").checked = false; 
+}
+
+// events
 
 const addButton = document.querySelector("#add");
 

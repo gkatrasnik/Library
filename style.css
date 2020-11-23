@@ -1,10 +1,14 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .control {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.container {
+#container {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -34,7 +38,7 @@
     width: 80px;
 }
 
-#removeBook {
+.removeBook {
     margin: 10px;
 }
 
@@ -46,6 +50,10 @@
     border: 1px solid black;
     background-color: lightblue;
     margin: 20px;
+    padding: 10px;
+}
+.lib-element p {
+    margin:5px;
 }
 
 
