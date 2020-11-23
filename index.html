@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> TEST </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class = "control">
+    <h1>LIBRARY</h1>
+    <button id="add-a-book" onclick="popupShow()">Add a book</button>
+
+    <div id = "popupDiv" class="popup">
+      <h2>Add new book</h2>
+      <label for="book-title">Title:</label>
+      <input type="text" id="book-title" class="popup-item">
+
+      <label for="book-author">Author:</label>
+      <input type="text" id="book-author" class="popup-item">
+
+      <label for="book-pages">Number of pages:</label>
+      <input type="number" id="book-pages" class="popup-item">
+
+      <label for="book-read">Finished the book?</label>
+      <input type="checkbox" id="book-read" class="popup-item" >
+      
+      <div class = button-box>
+        <button id="cancel" class="popup-item" >Cancel</button>
+        <button id="add" class="popup-item" >Add</button>
+      </div>
+    </div>
+  </div>
+  <div class = "container">
+    <div class = "lib-element">
+      <p>Book title</p>
+      <p>Author</p>
+      <p>Pages</p>
+      <label for="read">Read</label>
+      <input type="radio" id="read">
+      <button id="removeBook">Remove</button>     
+    </div>
+
+    <div class = "lib-element">
+      <p>Book title</p>
+      <p>Author</p>
+      <p>Pages</p>
+      <label for="read">Read</label>
+      <input type="radio" id="read">
+      <button id="removeBook">Remove</button>     
+    </div>
+
+    <div class = "lib-element">
+      <p>Book title</p>
+      <p>Author</p>
+      <p>Pages</p>
+      <label for="read">Read</label>
+      <input type="radio" id="read">
+      <button id="removeBook">Remove</button>     
+    </div>
+
+    <div class = "lib-element">
+      <p>Book title</p>
+      <p>Author</p>
+      <p>Pages</p>
+      <label for="read">Read</label>
+      <input type="radio" id="read">
+      <button id="removeBook">Remove</button>     
+    </div>
+
+   
+  </div>  
+
+  <script src="script.js"></script>
+</body>
+</html>
