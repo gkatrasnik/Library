@@ -1,7 +1,6 @@
 
 let myLibrary = [];
 
-
 //constructor
 function book(title, author, pages, read) {
     this.title = title;
@@ -13,12 +12,8 @@ function book(title, author, pages, read) {
     }
   }
 
-
-
-
-
+//functions
 function addBookToLibrary() {
-
   const bookTitle = document.getElementById("book-title").value;
   const bookAuthor = document.getElementById("book-author").value;
   const bookPages = document.getElementById("book-pages").value;
@@ -28,11 +23,10 @@ function addBookToLibrary() {
   myLibrary.unshift(newBook);
   render();
   popupShow();
-  console.log("clicked button")
 }
 
-function render() {
 
+function render() {
   const container = document.getElementById("container");
   container.innerHTML =""; //pobriše vse 
 
@@ -40,6 +34,7 @@ function render() {
     createBook(myLibrary[i]);
   }  
 }
+
 
 function createBook(item) {
   let bookCard = document.createElement("div");  
@@ -69,8 +64,12 @@ function createBook(item) {
   removeButton.addEventListener("click", () => {
     myLibrary.splice(myLibrary.indexOf(item), 1);
     render();
-  })
+  });
 
+  readCheck.addEventListener("change", () => {
+    item.read = !item.read;
+    render();
+  });
   
   bookCard.appendChild(textTitle);
   bookCard.appendChild(textAuthor);
@@ -82,21 +81,13 @@ function createBook(item) {
   
 }
 
-function removeCard() {
-
-  
-  //let cards = document.querySelectorAll(".lib-element");  
-  //cardId = cards.dataset.index;
-  console.log(card);
-
-}
 
 function popupShow() {
     let element = document.getElementById("popupDiv")
     element.classList.toggle("shown");
-
     popupClear();
 }
+
 
 function popupClear() {
   document.getElementById("book-title").value = "";
@@ -106,7 +97,5 @@ function popupClear() {
 }
 
 // events
-
 const addButton = document.querySelector("#add");
-
 addButton.addEventListener("click", addBookToLibrary);
