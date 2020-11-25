@@ -99,3 +99,6 @@ function popupClear() {
 // events
 const addButton = document.querySelector("#add");
 addButton.addEventListener("click", addBookToLibrary);
+
+
+//add local storage func.
