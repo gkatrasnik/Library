@@ -108,9 +108,14 @@ function setData(){
 }
 
 function restoreData(){
-  let storedData = JSON.parse(localStorage.getItem("myLibrary"));
-  myLibrary = storedData;
-  render();
+
+  if(!localStorage.myLibrary) {
+    render();
+  }else {
+    let storedData = JSON.parse(localStorage.getItem("myLibrary"));
+    myLibrary = storedData;
+    render();
+  }
 }
 
 // events
