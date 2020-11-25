@@ -21,6 +21,7 @@ function addBookToLibrary() {
 
   let newBook = new book(bookTitle, bookAuthor, bookPages, bookRead);
   myLibrary.unshift(newBook);
+  setData();
   render();
   popupShow();
 }
@@ -40,20 +41,21 @@ function createBook(item) {
   let bookCard = document.createElement("div");  
   bookCard.classList.add("lib-element");
 
-  let textTitle = document.createElement("p"); 
-  textTitle.textContent= item.title; 
+  let textTitle = document.createElement("h3"); 
+  textTitle.textContent= ("Title: " +item.title); 
 
   let textAuthor = document.createElement("p");
-  textAuthor.textContent= item.author; 
+  textAuthor.textContent= ("Author: " + item.author); 
 
   let textPages = document.createElement("p");
   textPages.textContent = ("Pages: " + item.pages);  
 
   let label = document.createElement("p");
-  label.textContent = "Read:"; 
+  label.textContent = "Read: "; 
+  label.setAttribute("class", "read");
 
   readCheck = document.createElement("INPUT");
-  readCheck.setAttribute("id", "read");
+  readCheck.setAttribute("class", "read");
   readCheck.setAttribute("type", "checkbox");
   readCheck.checked = item.read; 
 
@@ -63,11 +65,13 @@ function createBook(item) {
 
   removeButton.addEventListener("click", () => {
     myLibrary.splice(myLibrary.indexOf(item), 1);
+    setData();
     render();
   });
 
   readCheck.addEventListener("change", () => {
     item.read = !item.read;
+    setData();
     render();
   });
   
@@ -81,6 +85,7 @@ function createBook(item) {
   
 }
 
+// popup functions
 
 function popupShow() {
     let element = document.getElementById("popupDiv")
@@ -96,9 +101,32 @@ function popupClear() {
   document.getElementById("book-read").checked = false; 
 }
 
-// events
+//storage functions
+
+function setData(){
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
+
+function restoreData(){
+
+  if(!localStorage.myLibrary) {
+    render();
+  }else {
+    let storedData = JSON.parse(localStorage.getItem("myLibrary"));
+    myLibrary = storedData;
+    render();
+  }
+}
+
+// popup add button event listener
 const addButton = document.querySelector("#add");
 addButton.addEventListener("click", addBookToLibrary);
-
+window.addEventListener("keypress", (e) => {
+  if (e.key === 'Enter') {
+    addBookToLibrary();
+    console.log("enter")
+  }
+});
 
 //add local storage func.
+restoreData();
