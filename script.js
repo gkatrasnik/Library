@@ -1,8 +1,9 @@
 
 let myLibrary = [];
 
-//constructor
-function book(title, author, pages, read) {
+// book class - changed from constructor
+class book {
+  constructor(title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -11,7 +12,7 @@ function book(title, author, pages, read) {
       return(title + author + pages + read)
     }
   }
-
+}
 //functions
 function addBookToLibrary() {
   const bookTitle = document.getElementById("book-title").value;
