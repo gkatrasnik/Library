@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title> TEST </title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class = "control">
-    <h1>LIBRARY</h1>
-    <button id="add-a-book" onclick="popupShow()">Add book</button>
+  <head>
+    <meta charset="utf-8" />
+    <title>TEST</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="control">
+      <h1>LIBRARY</h1>
+      <button id="add-a-book" onclick="popupShow()">Add book</button>
 
-    <div id = "popupDiv" class="popup">
-      <h2>Add new book</h2>
-      <label for="book-title">Title:</label>
-      <input type="text" id="book-title" class="popup-item">
+      <div id="popupDiv" class="popup">
+        <h2>Add new book</h2>
+        <label for="book-title">Title:</label>
+        <input type="text" id="book-title" class="popup-item" required />
 
-      <label for="book-author">Author:</label>
-      <input type="text" id="book-author" class="popup-item">
+        <label for="book-author">Author:</label>
+        <input type="text" id="book-author" class="popup-item" required />
 
-      <label for="book-pages">Number of pages:</label>
-      <input type="number" id="book-pages" class="popup-item">
+        <label for="book-pages">Number of pages:</label>
+        <input type="number" id="book-pages" class="popup-item" required />
 
-      <label for="book-read">Finished the book?</label>
-      <input type="checkbox" id="book-read" class="popup-item" >
-      
-      <div class = button-box>
-        <button id="cancel" class="popup-item" onclick="popupShow()">Cancel</button>
-        <button id="add" class="popup-item" >Add</button>
+        <label for="book-read">Finished the book?</label>
+        <input type="checkbox" id="book-read" class="popup-item" />
+
+        <div class="button-box">
+          <button id="cancel" class="popup-item" onclick="popupShow()">
+            Cancel
+          </button>
+          <button onclick="formValidation()" id="add" class="popup-item">
+            Add
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <div id = "container">
-    
-   
+    <div id="container"></div>
 
-   
-  </div>  
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
